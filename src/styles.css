@@ -49,6 +49,7 @@ body {
 @media only screen and (max-width: 600px) {
   body {
     flex-direction: row;
+   
   }
 
   .arrow-controls {
@@ -71,9 +72,4 @@ body {
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .play-board {
-    max-width: 100%; /* Allow the play-board to take the full width on small screens */
-  }
-}
 
