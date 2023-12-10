@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>SNAKE GAME</title>
-    <meta charset="UTF-8" />
-  </head>
-
-  <body>
-    <div class="wrapper">
-      
-
-      <div class="game-details">
-        <span class="score">Score: 0</span>
-        <span class="high-score">High Score: 0</span>
-      </div>
-      
-      <div class="play-board"></div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNAKE GAME</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="game-details">
+      <span class="score">Score: 0</span>
+      <span class="high-score">High Score: 0</span>
     </div>
+    
+    <div class="play-board"></div>
 
-    <script src="./index.mjs" type="module"></script>
-  </body>
+   
+    <div class="arrow-controls">
+      <div class="arrow" id="up">&#8593;</div>
+      <div class="arrow" id="down">&#8595;</div>
+      <div class="arrow" id="left">&#8592;</div>
+      <div class="arrow" id="right">&#8594;</div>
+    </div>
+  </div>
+
+  <script src="./index.mjs" type="module"></script>
+</body>
 </html>

@@ -1,13 +1,14 @@
 import "./styles.css";
 
 const playBoard = document.querySelector(".play-board");
+const arrowControls = document.querySelector('.arrow-controls');
 
 let foodX, foodY;
 let snakeX = 5, snakeY = 10;
-let velocityX = 1, velocityY = 0; // Initial velocity
+let velocityX = 1, velocityY = 0;
 let snakeBody = [];
 let gameOver = false;
-let score = 0; // Added score variable
+let score = 0;
 let highScore = 0;
 
 const changeFoodPosition = () => {
@@ -19,7 +20,7 @@ changeFoodPosition();
 
 const handleGameOver = () => {
   alert(`Game over! Your score is ${score}`);
-  resetGame()
+  resetGame();
 }
 
 const changeDirection = (e) => {
@@ -37,6 +38,22 @@ const changeDirection = (e) => {
     velocityY = 0;
   }
 }
+
+const changeDirectionFromControls = (direction) => {
+  if (direction === 'up' && velocityY !== 1) {
+    velocityX = 0;
+    velocityY = -1;
+  } else if (direction === 'down' && velocityY !== -1) {
+    velocityX = 0;
+    velocityY = 1;
+  } else if (direction === 'left' && velocityX !== 1) {
+    velocityX = -1;
+    velocityY = 0;
+  } else if (direction === 'right' && velocityX !== -1) {
+    velocityX = 1;
+    velocityY = 0;
+  }
+};
 
 const initGame = () => {
   if (gameOver) return handleGameOver();
@@ -80,8 +97,8 @@ const initGame = () => {
 const updateScore = () => {
   const scoreElement = document.querySelector('.score');
   scoreElement.textContent = `Score: ${score}`;
+  updateHighScore();
 };
-
 
 const resetGame = () => {
   snakeX = 5;
@@ -95,8 +112,21 @@ const resetGame = () => {
   changeFoodPosition();
 };
 
-
+const updateHighScore = () => {
+  if (score > highScore) {
+    highScore = score;
+    const highScoreElement = document.querySelector('.high-score');
+    highScoreElement.textContent = `High Score: ${highScore}`;
+  }
+};
 
 setInterval(initGame, 125);
 
 document.addEventListener("keydown", changeDirection);
+
+arrowControls.addEventListener('click', (event) => {
+  if (event.target.classList.contains('arrow')) {
+    const direction = event.target.id;
+    changeDirectionFromControls(direction);
+  }
+});
