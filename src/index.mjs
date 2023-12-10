@@ -58,7 +58,7 @@ const changeDirectionFromControls = (direction) => {
 const initGame = () => {
   if (gameOver) return handleGameOver();
 
-  let htmlMarkup = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;
+  let htmlMarkup = `<div class="food" style="grid-area: ${Math.min(foodY, 30)} / ${Math.min(foodX, 30)}"></div>`;
 
   if (snakeX === foodX && snakeY === foodY) {
     changeFoodPosition();
@@ -76,6 +76,10 @@ const initGame = () => {
   snakeX += velocityX;
   snakeY += velocityY;
 
+  // Ensure snake stays within the valid range
+  snakeX = Math.max(1, Math.min(snakeX, 30));
+  snakeY = Math.max(1, Math.min(snakeY, 30));
+
   for (let i = 1; i < snakeBody.length; i++) {
     if (snakeX === snakeBody[i][0] && snakeY === snakeBody[i][1]) {
       gameOver = true;
@@ -88,7 +92,10 @@ const initGame = () => {
   }
 
   for (let i = 0; i < snakeBody.length; i++) {
-    htmlMarkup += `<div class="head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
+    // Ensure snake body stays within the valid range
+    const bodyX = Math.max(1, Math.min(snakeBody[i][0], 30));
+    const bodyY = Math.max(1, Math.min(snakeBody[i][1], 30));
+    htmlMarkup += `<div class="head" style="grid-area: ${bodyY} / ${bodyX}"></div>`;
   }
 
   playBoard.innerHTML = htmlMarkup;
