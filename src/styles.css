@@ -1,7 +1,7 @@
 body {
   margin: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Ensure a column layout for small screens */
   align-items: center;
   height: 100vh;
   background-color: #282c34;
@@ -10,9 +10,7 @@ body {
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
 }
 
 .play-board {
@@ -60,7 +58,6 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  flex-direction: row;
 }
 
 .arrow {
