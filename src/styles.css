@@ -48,13 +48,15 @@ body {
 
 @media only screen and (max-width: 600px) {
   body {
-    flex-direction: column;
+    flex-direction: row;
+    
   }
 
   .arrow-controls {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    flex-direction: row;
   }
 
   .arrow {
@@ -69,3 +71,10 @@ body {
     color: #ff8c00; 
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .play-board {
+    max-width: 100%; /* Allow the play-board to take the full width on small screens */
+  }
+}
+
