@@ -38,18 +38,20 @@ body {
   }
 }
 
-
 .head {
   background-color: #61dafb;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-
 @media only screen and (max-width: 600px) {
   body {
     flex-direction: row;
-    
+  }
+
+  .play-board {
+    max-width: 100%;
+    margin: 10px; /* Add space around the board */
   }
 
   .arrow-controls {
@@ -68,13 +70,6 @@ body {
   }
 
   .arrow:hover {
-    color: #ff8c00; 
+    color: #ff8c00;
   }
 }
-
-@media only screen and (max-width: 600px) {
-  .play-board {
-    max-width: 100%; /* Allow the play-board to take the full width on small screens */
-  }
-}
-
