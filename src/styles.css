@@ -1,16 +1,12 @@
 body {
   margin: 0;
   display: flex;
-  flex-direction: column; /* Ensure a column layout for small screens */
+  justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #282c34;
   color: #61dafb;
   font-family: 'Arial', sans-serif;
-}
-
-.wrapper {
-  width: 100%;
 }
 
 .play-board {
@@ -19,8 +15,6 @@ body {
   grid-template-rows: repeat(30, 20px);
   gap: 1px;
   border: 2px solid #61dafb;
-  max-width: 600px; /* Adjust the maximum width for better fit on small screens */
-  margin: 20px; /* Add some margin for better spacing */
 }
 
 .food,
@@ -44,37 +38,42 @@ body {
   }
 }
 
+
 .head {
   background-color: #61dafb;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-.game-details {
-  text-align: center;
-}
 
-.arrow-controls {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
+@media only screen and (max-width: 600px) {
+  body {
+    flex-direction: row;
+  }
 
-.arrow {
-  font-size: 24px;
-  margin: 0 10px;
-  cursor: pointer;
-  color: #61dafb;
-  transition: color 0.3s ease;
-}
+  .arrow-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-direction: row;
+  }
 
-.arrow:hover {
-  color: #ff8c00; 
+  .arrow {
+    font-size: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+    color: #61dafb;
+    transition: color 0.3s ease;
+  }
+
+  .arrow:hover {
+    color: #ff8c00; 
+  }
 }
 
 @media only screen and (max-width: 600px) {
   .play-board {
-    grid-template-columns: repeat(15, 20px); /* Adjust the number of columns for smaller screens */
-    grid-template-rows: repeat(15, 20px); /* Adjust the number of rows for smaller screens */
+    max-width: 100%; /* Allow the play-board to take the full width on small screens */
   }
 }
+
