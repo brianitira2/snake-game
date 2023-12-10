@@ -15,6 +15,7 @@ body {
   grid-template-rows: repeat(30, 20px);
   gap: 1px;
   border: 2px solid #61dafb;
+
 }
 
 .food,
@@ -44,21 +45,21 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-@media only screen and (max-width: 600px) {
+/*@media only screen and (max-width: 600px) {
   body {
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .play-board {
     max-width: 100%;
-    margin: 10px; /* Add space around the board */
+
   }
 
   .arrow-controls {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    flex-direction: row;
+   
   }
 
   .arrow {
@@ -72,4 +73,8 @@ body {
   .arrow:hover {
     color: #ff8c00;
   }
+}*/
+
+.footer{
+  font-size: 20px;
 }
