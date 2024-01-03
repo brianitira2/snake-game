@@ -130,3 +130,6 @@ arrowControls.addEventListener('click', (event) => {
     changeDirectionFromControls(direction);
   }
 });
+
+
+
